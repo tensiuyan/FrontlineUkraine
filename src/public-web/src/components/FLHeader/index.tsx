@@ -75,6 +75,8 @@ export const FLHeader: React.FC<Props> = ({
         </Box>
         <Box className={classes.headerItemsContainer}>
           <MainLinks variant="header" />
+        </Box>
+        <Box>
           <LocaleControl className={classes.localeControl} />
           <AccountMenu />
         </Box>

@@ -1,12 +1,20 @@
 import React from 'react';
-import { SegmentedControl, SegmentedControlProps } from '@mantine/core';
+import { Button, SegmentedControlProps, Menu} from '@mantine/core';
 import { Locale } from '../../locale/type';
 import { useLocale } from '../../locale/LocaleProvider';
 
-export const LocaleControl: React.FC<Pick<SegmentedControlProps, 'fullWidth' | 'className'>> = (props) => {
+
+
+export const LocaleControl: React.FC<Pick<SegmentedControlProps, 'fullWidth' | 'className'>> = () => {
   const { locale, changeLocale } = useLocale();
-  return <SegmentedControl {...props} value={locale} onChange={changeLocale} data={[
-    { label: 'English', value: Locale.En },
-    { label: 'украї́нська мо́ва', value: Locale.Uk }
-  ]}/>
+  
+  const control =   <Button size="md" radius="xl" variant="white" uppercase>{locale}</Button>
+
+  return (
+    <Menu control={control}>
+      <Menu.Item onClick={() =>changeLocale(Locale.En)}>English</Menu.Item>
+      <Menu.Item onClick={() =>changeLocale(Locale.Uk)}>Ukrainian</Menu.Item>
+    </Menu>
+  );
+
 }

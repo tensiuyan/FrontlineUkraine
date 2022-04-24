@@ -22,7 +22,7 @@ setup:
 	@echo "================"
 	@echo "Please choose either docker-based or localhost setup before starting server"
 	@echo "export NO_DOCKER=1 and replace Database part in ConnectionStrings.DataContext to 'localhost,1433' in Web/appsettings.Development.json if you use local development"
-	@$(MAKE) db-setup
+	# @$(MAKE) db-setup
 	@cp ./src/public-web/appConfig.js.template ./src/public-web/public/appConfig.js
 	@echo '[public-web]: Please update public/appConfig.js for your local development'
 	@echo "Your public/appConfig.js now is"
