@@ -6,6 +6,7 @@ import { isResourceTypeOther, PpeTypeEnum } from '../../../../models/ppeType';
 import { ReactHookFormNumberInput } from '../../../../components/ReactHookFormNumberInput';
 import { useStyles } from './style';
 import { VALIDATION_MSG } from '../../../../utils/validation';
+import { FormattedMessage } from '../../../../locale/FormattedMessage';
 
 interface Props {
   ppeType: PpeTypeEnum;
@@ -29,25 +30,11 @@ export const PpeRequestSubForm: React.FC<
         control={control}
         error={errors.ppeTypes?.[ppeType]?.dailyShortage?.message}
         className={classes.inputWrapper}
-        description="We are a charity. Our supplies are limited. How many do you (and your team) really need to bridge the gap until supplies arrive?"
+        description={<FormattedMessage id="i_need_form_sub_form_how_many_you_need_title" />}
         min={0}
         max={100000000}
         step={1}
       />
-      {!isResourceTypeOther(ppeType) && (
-        <TextInput
-          {...register(`ppeTypes.${ppeType}.dailyShortageForWhom`, {
-            required: {
-              value: true,
-              message: VALIDATION_MSG.required,
-            },
-            shouldUnregister,
-          })}
-          error={errors.ppeTypes?.[ppeType]?.dailyShortageForWhom?.message}
-          className={classes.inputWrapper}
-          description="How many people will this protect for how long?"
-        />
-      )}
       {isResourceTypeOther(ppeType) && (
         <TextInput
           {...register(`ppeTypes.${ppeType}.ppeTypeOther`, {

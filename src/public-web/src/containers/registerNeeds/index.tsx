@@ -137,14 +137,14 @@ export const RegisterNeeds: React.FC = () => {
                 label={renderToString('i_need_form_fieldset_your_detail_field_publish_anonymously_title')}
                 description={renderToString('i_need_form_fieldset_your_detail_field_publish_anonymously_description')}
               >
-                <Switch {...register('publishAnonymously')} size="md"/>
+                <Switch {...register('publishAnonymously')}  size="md"/>
               </InputWrapper>
               <TextInput
                 {...register('contactName')}
                 error={errors.contactName?.message}
                 className={classes.inputWrapper}
                 label={renderToString('i_need_form_fieldset_your_detail_field_contact_name_title')}
-                description="If you tick 'Publish Anonymously' this will not be published on the website nor shared outside the Frontline team. If you don't leave your name, we will delivery PPE package to the department you entered."
+                description={<FormattedMessage id="i_need_form_fieldset_your_detail_field_contact_name_description"/>}
               />
               <TextInput
                 {...register('email', {
@@ -239,16 +239,6 @@ export const RegisterNeeds: React.FC = () => {
                 description={renderToString('i_need_form_fieldset_organisation_field_org_reg_code_description')}
                 required={true}
               />
-              <InputWrapper
-                error={errors.orgHasGovtApproval?.message}
-                className={classes.inputWrapper}
-                label={renderToString('i_need_form_fieldset_organisation_field_orgHasGovtApproval_title')}
-              >
-                <Switch
-                  {...register('orgHasGovtApproval')}
-                  size="md"
-                />
-              </InputWrapper>
               <ReactHookFormRadioGroup
                 name="orgType"
                 control={control}
