@@ -29,5 +29,12 @@ export const useStyles = createStyles((theme) => ({
   noSessionContent: {
     backgroundColor: theme.white,
     minHeight: '100vh'
+  },
+  sPdescription : {
+    textAlign: 'center',
+  },
+  sPheading: {
+    margin: 0,
+    marginTop: 20
   }
 }));
