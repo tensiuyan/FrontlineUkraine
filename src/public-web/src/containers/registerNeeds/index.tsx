@@ -63,9 +63,9 @@ export const RegisterNeeds: React.FC = () => {
       await createRequest(data);
       notification.showNotification({
         color: 'flGreen',
-        title: 'Save Successful',
+        title: <FormattedMessage id="i_need_form_message_save_successful_title" />,
         message:
-          'Thanks you have been added to the database, we will be in contact in due course. You will be redirected to home page in 10 seconds.',
+        <FormattedMessage id="i_need_form_message_save_successful_message" />,
         autoClose: 10000,
         onClose: () => {
           navigate('/');
@@ -81,8 +81,8 @@ export const RegisterNeeds: React.FC = () => {
       if (!isSchemaValidationErrorData(data)) {
         notification.showNotification({
           color: 'red',
-          title: 'Cannot save supply',
-          message: 'Unexpected error occurred. Please try again.',
+          title: <FormattedMessage id="i_need_form_message_cannot_save_error_title" />,
+          message: <FormattedMessage id="i_need_form_message_cannot_save_error_message" />,
           autoClose: 5000,
         });
         return;
@@ -102,8 +102,8 @@ export const RegisterNeeds: React.FC = () => {
       });
       notification.showNotification({
         color: 'red',
-        title: 'Cannot save supply',
-        message: 'Problems saving details, please fix and try again.',
+        title: <FormattedMessage id="i_need_form_message_cannot_save_error_title" />,
+        message: <FormattedMessage id="i_need_form_message_cannot_save_error_title" />,
         autoClose: 5000,
       });
     },
@@ -130,21 +130,28 @@ export const RegisterNeeds: React.FC = () => {
             }
           >
             <fieldset className={classes.fieldSet}>
-              <legend className={classes.legend}>Your Details</legend>
+              <legend className={classes.legend}>{renderToString('i_need_form_fieldset_your_detail_title')}</legend>
               <InputWrapper
                 error={errors.publishAnonymously?.message}
                 className={classes.inputWrapper}
                 label={renderToString('i_need_form_fieldset_your_detail_field_publish_anonymously_title')}
                 description={renderToString('i_need_form_fieldset_your_detail_field_publish_anonymously_description')}
+                required={true}
               >
-                <Switch {...register('publishAnonymously')}  size="md"/>
+                <Switch {...register('publishAnonymously')}  
+                size="md"
+                checked={true}
+              />
               </InputWrapper>
               <TextInput
-                {...register('contactName')}
+                {...register('contactName', {
+                  required: { value: true, message: VALIDATION_MSG.required },
+                })}
                 error={errors.contactName?.message}
                 className={classes.inputWrapper}
                 label={renderToString('i_need_form_fieldset_your_detail_field_contact_name_title')}
                 description={<FormattedMessage id="i_need_form_fieldset_your_detail_field_contact_name_description"/>}
+                required={true}
               />
               <TextInput
                 {...register('email', {
@@ -153,8 +160,8 @@ export const RegisterNeeds: React.FC = () => {
                 error={errors.email?.message}
                 className={classes.inputWrapper}
                 type="email"
-                label="Email"
-                description="We need to contact you to confirm information and successful delivery."
+                label={renderToString('i_need_form_fieldset_your_detail_field_contact_email_title')}
+                description={renderToString('i_need_form_fieldset_your_detail_field_contact_email_description')}
                 required={true}
               />
               <TextInput
@@ -164,8 +171,8 @@ export const RegisterNeeds: React.FC = () => {
                 error={errors.phoneNumber?.message}
                 className={classes.inputWrapper}
                 type="tel"
-                label="Phone number"
-                description="Phone number"
+                label={renderToString('i_need_form_fieldset_your_detail_field_contact_phone_title')}
+                description={renderToString('i_need_form_fieldset_your_detail_field_contact_phone_description')}
                 required={true}
               />
             </fieldset>
@@ -275,8 +282,8 @@ export const RegisterNeeds: React.FC = () => {
                 })}
                 error={errors.jobTitle?.message}
                 className={classes.inputWrapper}
-                label="Job Title"
-                description="This will not be published on the site. It will be used for anonymous data reporting."
+                label={renderToString('i_need_form_fieldset_organisation_field_job_title_title')}
+                description={renderToString('i_need_form_fieldset_organisation_field_job_title_description')}
                 required={true}
               />
               <TextInput
@@ -285,27 +292,27 @@ export const RegisterNeeds: React.FC = () => {
                 })}
                 error={errors.department?.message}
                 className={classes.inputWrapper}
-                label="Department"
-                description="This will not be published on the site. It will be used for anonymous data reporting."
+                label={renderToString('i_need_form_fieldset_organisation_field_department_title')}
+                description={renderToString('i_need_form_fieldset_organisation_field_department_description')}
                 required={true}
               />
-            </fieldset>
+            </fieldset> 
             <fieldset className={classes.fieldSet}>
-              <legend className={classes.legend}>Additional Details</legend>
+              <legend className={classes.legend}>{renderToString('i_need_form_fieldset_additional_details_title')}</legend>
               <TextInput
                 {...register('addressLineOne', {
                   required: { value: true, message: VALIDATION_MSG.required },
                 })}
                 error={errors.addressLineOne?.message}
                 className={classes.inputWrapper}
-                label="Address line 1"
+                label={renderToString('i_need_form_fieldset_additional_details_address_line_1_title')}
                 required={true}
               />
               <TextInput
                 {...register('addressLineTwo')}
                 error={errors.addressLineTwo?.message}
                 className={classes.inputWrapper}
-                label="Address line 2"
+                label={renderToString('i_need_form_fieldset_additional_details_address_line2_title')}
               />
               <ReactHookFormPosttagAddressAutocomplete
                 control={control}
@@ -315,8 +322,8 @@ export const RegisterNeeds: React.FC = () => {
                 }}
                 error={errors.postcode?.message}
                 className={classes.inputWrapper}
-                label="Postcode"
-                description="Will be added to the map to indicate location of your supplies"
+                label={renderToString('i_need_form_fieldset_additional_details_postcode_title')}
+                description={renderToString('i_need_form_fieldset_additional_details_postcode_description')}
                 required={true}
                 onAddressSelect={handleAddressSelect}
               />
@@ -324,19 +331,18 @@ export const RegisterNeeds: React.FC = () => {
                 {...register('tellUsMore')}
                 error={errors.tellUsMore?.message}
                 className={classes.inputWrapper}
-                label="Tell Us More"
-                description="Tell us more about how the shortage affects you"
+                label={renderToString('i_need_form_fieldset_additional_details_tell_us_more_title')}
+                description={renderToString('i_need_form_fieldset_additional_details_tell_us_more_description')}
               />
             </fieldset>
             <Button
               className={classes.submitBtn}
               variant="filled"
               type="submit"
-              color="blue"
               disabled={isSubmitSuccessful}
-              loading={isSubmitting}
+              loading={isSubmitting} 
             >
-              {isSubmitSuccessful ? 'Saved!' : 'Save'}
+              {isSubmitSuccessful ?  <FormattedMessage id="save_button_saved" /> : <FormattedMessage id="save_button_save" />}
             </Button>
           </form>
         </section>

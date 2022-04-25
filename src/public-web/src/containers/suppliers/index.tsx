@@ -63,7 +63,7 @@ export const Suppliers: React.FC = () => {
               If you wish to sign up as an verified supplier, please contact <a href="mailto:hello@frontline.live">hello@frontline.live</a> 
             </Text>
             <Button onClick={onClickSignIn}>
-              <FormattedMessage id="suppliers_sign_in_button" />
+              Login to see the full map
             </Button>
           </Stack>
         </Col>

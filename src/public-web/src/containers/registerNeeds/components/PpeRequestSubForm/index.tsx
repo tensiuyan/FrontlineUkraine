@@ -43,8 +43,8 @@ export const PpeRequestSubForm: React.FC<
           })}
           error={errors.ppeTypes?.[ppeType]?.ppeTypeOther?.message}
           className={classes.inputWrapper}
-          label="PPE Type Other"
-          description={`If the list above does not fit choose "Other..." and describe here`}
+          label={<FormattedMessage id="i_need_form_sub_form_other_title" />}
+          description={<FormattedMessage id="i_need_form_sub_form_other_description" />}
         />
       )}
     </div>
