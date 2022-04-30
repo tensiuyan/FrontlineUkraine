@@ -38,7 +38,7 @@ export interface RegisterRequestForm {
 }
 
 export const defaultRegisterRequestForm: DefaultValues<RegisterRequestForm> = {
-  publishAnonymously: false,
+  publishAnonymously: true,
   contactName: '',
   email: '',
   phoneNumber: '',

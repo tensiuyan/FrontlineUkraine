@@ -11,6 +11,8 @@ import {
   Switch,
   Text,
   Select,
+  Modal,
+  Group
 } from '@mantine/core';
 import { Controller, FieldPath, SubmitHandler, useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
@@ -46,6 +48,7 @@ import { City } from '../../models/city';
 export const RegisterNeeds: React.FC = () => {
   const { classes } = useStyles();
   const { locale, renderToString } = useLocale();
+  const [opened, setOpened] = useState(false);
   const navigate = useNavigate();
   const notification = useNotifications();
   const {
@@ -411,6 +414,18 @@ export const RegisterNeeds: React.FC = () => {
               />
             </fieldset>
             <fieldset className={classes.fieldSet}>
+            <Modal
+                opened={opened}
+                onClose={() => setOpened(false)}
+                size="full"
+                title="Turn on your GPS and get the 3 words that describe your exact location"
+              >
+                <iframe width="100%" height="800px" allow="geolocation *; clipboard-read; clipboard-write"  src="https://what3words.com"></iframe>
+              </Modal>
+
+              <Group position="left">
+                <Button onClick={() => setOpened(true)}>Get What3Words</Button>
+              </Group>
               <legend className={classes.legend}>
                 {renderToString(
                   'i_need_form_fieldset_additional_details_title'
@@ -481,6 +496,8 @@ export const RegisterNeeds: React.FC = () => {
                 required={true}
                 onAddressSelect={handleAddressSelect}
               />
+              <div>
+              </div>
               <Textarea
                 {...register('tellUsMore')}
                 error={errors.tellUsMore?.message}

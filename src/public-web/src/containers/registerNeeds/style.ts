@@ -14,6 +14,9 @@ export const useStyles = createStyles((theme) => ({
     '&:not(:last-child)': {
       marginBottom: theme.spacing.xl,
     },
+    'span': {
+      fontWeight: 'bold'
+    }
   },
   legend: {
     color: getThemePrimaryColor(theme),

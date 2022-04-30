@@ -13,7 +13,7 @@ export default {
   i_need_form_form_submit_title_save: 'Save',
   i_need_form_title: 'I NEED',
   i_need_form_form_intro:
-    '{p, react, children{Frontline.Live is a charity registered in the UK. We are here to help make sure you get the supplies you need. Your safety and wellbeing are our priorities.}} {p, react, children{How to Register your Needs: Please complete the form below to let us know which specific supplies you have run out of. The information you provide on this form will be anonymised. Only trained volunteers and verified suppliers will be able to see your information. }} {p, react, children{The Verification Process : Our volunteers use a standard operating procedure to process this information and to ensure your safety and security.We need your location so that verified aid organizations can deliver the supplies you need. The specific detail of your location will ONLY be seen by verified suppliers.}} {p, react, children{Please note: We can only take requests from registered charities and public authorities, e.g. hospitals and local administrations.}} {p, react, children{The Verification Process : Our volunteers use a standard operating procedure to process this information and to ensure your safety and security.We need your location so that verified aid organizations can deliver the supplies you need. The specific detail of your location will ONLY be seen by verified suppliers.}} {p, react, children{When will Supplies be Delivered? : We cannot guarantee WHEN your requests will be met. BUT by reporting your needs, and putting them on the map, Aid Organisations will have a more accurate picture of what supplies are needed where.}} {p, react, children{Once you have submitted your information, a volunteer will: }}{ProcedureList, react} {p, react, children{Only submit requests for items you will need over the coming weeks. Supplies are running short across the country. Please be considerate of fellow Ukrainians in other regions. PLEASE let us know as soon as supplies have been delivered so our volunteers can update live information on the map.}}',
+    '{p, react, children{Frontline.Live is a charity registered in the UK. We are here to help make sure you get the supplies you need. Your safety and wellbeing are our priorities.}} {p, react, children{{span, react, children{How to Register your Needs:}} Please complete the form below to let us know which specific supplies you have run out of. The information you provide on this form will be anonymised. Only trained volunteers and verified suppliers will be able to see your information. }} {p, react, children{{span, react, children{The Verification Process :}} Our volunteers use a standard operating procedure to process this information and to ensure your safety and security.We need your location so that verified aid organizations can deliver the supplies you need. The specific detail of your location will ONLY be seen by verified suppliers.}} {p, react, children{Please note: We can only take requests from registered charities and public authorities, e.g. hospitals and local administrations.}} {p, react, children{{span, react, children{When will Supplies be Delivered? }} We cannot guarantee WHEN your requests will be met. BUT by reporting your needs, and putting them on the map, Aid Organisations will have a more accurate picture of what supplies are needed where.}} {p, react, children{Once you have submitted your information, a volunteer will: }}{ProcedureList, react} {p, react, children{Only submit requests for items you will need over the coming weeks. Supplies are running short across the country. Please be considerate of fellow Ukrainians in other regions. PLEASE let us know as soon as supplies have been delivered so our volunteers can update live information on the map.}}',
   i_need_form_form_intro_procedure_list_item_1:
     'check your registration number against the national database',
   i_need_form_form_intro_procedure_list_item_2:
@@ -140,7 +140,7 @@ export default {
   resourceType_DomesticSanitaryPocketTissues_displayName: 'Pocket tissues',
   resourceType_DomesticSanitaryShavingGelRazors_displayName:
     'Shaving gels and razors',
-  resourceType_DomesticSanitaryOther_displayName: 'Other sanitary products',
+  resourceType_DomesticSanitaryOther_displayName: 'Other sanitary products (Please specify)',
   resourceType_DomesticNonPerishableFoodDrinkProteinBars_displayName:
     'Protein bars',
   resourceType_DomesticNonPerishableFoodDrinkCannedFood_displayName:
@@ -174,7 +174,7 @@ export default {
   resourceType_DomesticOtherCookingStoves_displayName:
     'Cooking stoves (without gas)',
   resourceType_DomesticOtherBinBags_displayName: 'Bin bags',
-  resourceType_DomesticOtherOther_displayName: 'Other basics',
+  resourceType_DomesticOtherOther_displayName: 'Other basics (Please specify)',
   resourceType_NonDrugMedicalSuppliesMedicalEquipmentPatientMonitor_displayName:
     'PATIENT MONITOR, w/CO2 IBP ECG NIBP TEMP, SPO2, w/acc.',
   resourceType_NonDrugMedicalSuppliesMedicalEquipmentAnaesthesiaMachine_displayName:
